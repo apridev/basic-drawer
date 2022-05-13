@@ -1,3 +1,4 @@
+import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -6,7 +7,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-
+  var faker = new Faker();
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
@@ -18,7 +19,6 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({Key? key}) : super(key: key);
-
 
   @override
   Widget build(BuildContext context) {
@@ -92,13 +92,50 @@ class MyHomePage extends StatelessWidget {
           ],
         ),
       ),
-      body: Center(
-        child: Text('Some Text Here!', style: GoogleFonts.poppins(
-          fontSize: 24,
-          fontWeight: FontWeight.w500,
-          color: Colors.blue
-        ),),
+      body: ListView.builder(
+        itemCount: 20,
+        itemBuilder: (context, index){
+          return ChatItem(
+                imageUrl: "https://picsum.photos/id/$index/200/300",
+                title: faker.person.name(),
+                subtitle: faker.lorem.sentence(),
+              );
+        },
       ),
+    );
+  }
+}
+
+class ChatItem extends StatelessWidget {
+  final String imageUrl;
+  final String title;
+  final String subtitle;
+
+  ChatItem({required this.imageUrl, required this.title, required this.subtitle});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      title: Text(title, style: GoogleFonts.montserrat(
+        fontSize: 14,
+        fontWeight: FontWeight.w400
+      ),),
+      subtitle: Text(
+        subtitle,
+        style: GoogleFonts.montserrat(
+          fontSize: 12,
+          fontWeight: FontWeight.w400,
+        ),
+        overflow: TextOverflow.ellipsis,
+      ),
+      leading: CircleAvatar(
+        backgroundImage: NetworkImage(imageUrl),
+      ),
+      trailing: Text('12:00 PM', style: GoogleFonts.montserrat(
+        fontSize: 12,
+        fontWeight: FontWeight.w400,
+        color: Color(0xff413F42)
+      ),),
     );
   }
 }
