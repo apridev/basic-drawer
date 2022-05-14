@@ -15,9 +15,10 @@ class _HsailStatefulState extends State<HsailStateful> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: ListView(
-        children: [
-          Column(
+      body: ListView.builder(
+        itemCount: 20,
+        itemBuilder: (context, index){
+          return Column(
             children: [
               Container(
                 margin: EdgeInsets.only(left: 30, right: 30, top: 30),
@@ -37,7 +38,7 @@ class _HsailStatefulState extends State<HsailStateful> {
                 child: Column(
                   children: [
                     newListTile(
-                      imageUrl: "https://picsum.photos/id/50/200/300",
+                      imageUrl: "https://picsum.photos/id/$index/200/300",
                       title: faker.person.name(),
                       subtitle: faker.lorem.sentence(),
                     ),
@@ -104,8 +105,8 @@ class _HsailStatefulState extends State<HsailStateful> {
                 ),
               ),
             ],
-          )
-        ],
+          );
+        },
       ),
     );
   }
