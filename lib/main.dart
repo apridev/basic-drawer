@@ -1,3 +1,4 @@
+import 'package:basic_drawer/mapping_list.dart';
 import 'package:basic_drawer/test_stateful.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
@@ -91,17 +92,26 @@ class MyHomePage extends StatelessWidget {
                 ),
               ),
             ),
-            ListTile(
-              leading: const Icon(
-                Icons.rocket_launch_rounded,
-                color: Colors.black54,
-              ),
-              title: Text(
-                'Checkout',
-                style: GoogleFonts.montserrat(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.black54),
+            InkWell(
+              onTap: (){
+                Navigator.push(
+                  context, MaterialPageRoute(
+                    builder: (context) => MappingList()
+                  )
+                );
+              },
+              child: ListTile(
+                leading: const Icon(
+                  Icons.rocket_launch_rounded,
+                  color: Colors.black54,
+                ),
+                title: Text(
+                  'Mapping List',
+                  style: GoogleFonts.montserrat(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black54),
+                ),
               ),
             ),
             ListTile(
