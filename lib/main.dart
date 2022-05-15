@@ -28,7 +28,7 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Basic Drawer'),
+        title: const Text('Basic Drawer'),
       ),
       drawer: Drawer(
         child: Column(
