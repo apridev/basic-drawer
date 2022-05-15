@@ -1,4 +1,5 @@
 import 'package:basic_drawer/mapping_list.dart';
+import 'package:basic_drawer/tabBar_widget.dart';
 import 'package:basic_drawer/test_stateful.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
@@ -51,12 +52,9 @@ class MyHomePage extends StatelessWidget {
             ),
             ListTile(
               leading: InkWell(
-                onTap: (){
-                  Navigator.push(
-                    context, 
-                    MaterialPageRoute(builder: (context) => MyHomePage()
-                    )
-                  );
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => MyHomePage()));
                 },
                 child: Icon(
                   Icons.home,
@@ -93,12 +91,9 @@ class MyHomePage extends StatelessWidget {
               ),
             ),
             InkWell(
-              onTap: (){
-                Navigator.push(
-                  context, MaterialPageRoute(
-                    builder: (context) => MappingList()
-                  )
-                );
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => MappingList()));
               },
               child: ListTile(
                 leading: const Icon(
@@ -114,17 +109,23 @@ class MyHomePage extends StatelessWidget {
                 ),
               ),
             ),
-            ListTile(
-              leading: const Icon(
-                Icons.settings,
-                color: Colors.black54,
-              ),
-              title: Text(
-                'Setting Profile',
-                style: GoogleFonts.montserrat(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.black54),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => TabBarWidget()));
+              },
+              child: ListTile(
+                leading: const Icon(
+                  Icons.settings,
+                  color: Colors.black54,
+                ),
+                title: Text(
+                  'TabBar Widget',
+                  style: GoogleFonts.montserrat(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black54),
+                ),
               ),
             ),
           ],
