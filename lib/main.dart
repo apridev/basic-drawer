@@ -1,6 +1,8 @@
+import 'package:basic_drawer/grid_view.dart';
 import 'package:basic_drawer/mapping_list.dart';
 import 'package:basic_drawer/tabBar_widget.dart';
 import 'package:basic_drawer/test_stateful.dart';
+import 'package:basic_drawer/textFormField.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -31,24 +33,23 @@ class MyHomePage extends StatelessWidget {
         title: const Text('Basic Drawer'),
       ),
       drawer: Drawer(
-        child: Column(
+        child: ListView(
           children: [
             Container(
-              padding: EdgeInsets.all(20),
-              width: double.infinity,
-              height: 150,
-              color: Colors.blue,
-              child: Text(
-                'Menu Pilihan',
-                style: GoogleFonts.montserrat(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white),
+              padding: EdgeInsets.symmetric(
+                vertical: 20, horizontal: 20
               ),
+              margin: EdgeInsets.only(
+                bottom: 30
+              ),
+              height: 100,
+              color: Colors.blue,
               alignment: Alignment.bottomLeft,
-            ),
-            const SizedBox(
-              height: 20,
+              child: Text('Menu Pilihan', style: GoogleFonts.montserrat(
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+                color: Colors.white
+              ),),
             ),
             ListTile(
               leading: InkWell(
@@ -128,8 +129,46 @@ class MyHomePage extends StatelessWidget {
                 ),
               ),
             ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => TextFormFieldPage()));
+              },
+              child: ListTile(
+                leading: const Icon(
+                  Icons.text_fields_outlined,
+                  color: Colors.black54,
+                ),
+                title: Text(
+                  'Text Form Field',
+                  style: GoogleFonts.montserrat(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black54),
+                ),
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => GridViewPage()));
+              },
+              child: ListTile(
+                leading: const Icon(
+                  Icons.grid_view_sharp,
+                  color: Colors.black54,
+                ),
+                title: Text(
+                  'Grid View',
+                  style: GoogleFonts.montserrat(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black54),
+                ),
+              ),
+            ),
           ],
-        ),
+        )
       ),
       body: ListView.builder(
         itemCount: 20,
