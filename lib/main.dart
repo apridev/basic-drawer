@@ -1,3 +1,4 @@
+import 'package:basic_drawer/alert_dialog.dart';
 import 'package:basic_drawer/grid_view.dart';
 import 'package:basic_drawer/mapping_list.dart';
 import 'package:basic_drawer/tabBar_widget.dart';
@@ -156,6 +157,25 @@ class MyHomePage extends StatelessWidget {
               child: ListTile(
                 leading: const Icon(
                   Icons.grid_view_sharp,
+                  color: Colors.black54,
+                ),
+                title: Text(
+                  'Grid View',
+                  style: GoogleFonts.montserrat(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black54),
+                ),
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => AlertDialogPage()));
+              },
+              child: ListTile(
+                leading: const Icon(
+                  Icons.add_alert_sharp,
                   color: Colors.black54,
                 ),
                 title: Text(
