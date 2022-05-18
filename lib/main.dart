@@ -1,14 +1,22 @@
+import 'package:basic_drawer/Latihan/mediaQuery_product.dart';
 import 'package:basic_drawer/alert_dialog.dart';
+import 'package:basic_drawer/dismissible.dart';
 import 'package:basic_drawer/grid_view.dart';
 import 'package:basic_drawer/mapping_list.dart';
+import 'package:basic_drawer/mediaQuery.dart';
 import 'package:basic_drawer/tabBar_widget.dart';
 import 'package:basic_drawer/test_stateful.dart';
 import 'package:basic_drawer/textFormField.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
+  // WidgetsFlutterBinding.ensureInitialized();
+  // SystemChrome.setPreferredOrientations([
+  //   DeviceOrientation.portraitUp
+  // ]);
   runApp(MyApp());
 }
 
@@ -180,6 +188,63 @@ class MyHomePage extends StatelessWidget {
                 ),
                 title: Text(
                   'Grid View',
+                  style: GoogleFonts.montserrat(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black54),
+                ),
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => DismissiblePage()));
+              },
+              child: ListTile(
+                leading: const Icon(
+                  Icons.swap_horiz_rounded,
+                  color: Colors.black54,
+                ),
+                title: Text(
+                  'Dismissible',
+                  style: GoogleFonts.montserrat(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black54),
+                ),
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => MediaQueryPage()));
+              },
+              child: ListTile(
+                leading: const Icon(
+                  Icons.restore_page_rounded,
+                  color: Colors.black54,
+                ),
+                title: Text(
+                  'MediaQuery',
+                  style: GoogleFonts.montserrat(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black54),
+                ),
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => MediaQueryProduct()));
+              },
+              child: ListTile(
+                leading: const Icon(
+                  Icons.replay_outlined,
+                  color: Colors.black54,
+                ),
+                title: Text(
+                  'MediaQuery Product',
                   style: GoogleFonts.montserrat(
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
