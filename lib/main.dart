@@ -1,5 +1,6 @@
 import 'package:basic_drawer/Latihan/mediaQuery_product.dart';
 import 'package:basic_drawer/alert_dialog.dart';
+import 'package:basic_drawer/cupertino_ios.dart';
 import 'package:basic_drawer/dismissible.dart';
 import 'package:basic_drawer/grid_view.dart';
 import 'package:basic_drawer/mapping_list.dart';
@@ -245,6 +246,25 @@ class MyHomePage extends StatelessWidget {
                 ),
                 title: Text(
                   'MediaQuery Product',
+                  style: GoogleFonts.montserrat(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black54),
+                ),
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => CupertinoIOSPage()));
+              },
+              child: ListTile(
+                leading: const Icon(
+                  Icons.phone_android_rounded,
+                  color: Colors.black54,
+                ),
+                title: Text(
+                  'Cupertino IOS',
                   style: GoogleFonts.montserrat(
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
