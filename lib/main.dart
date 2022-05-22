@@ -5,6 +5,7 @@ import 'package:basic_drawer/dismissible.dart';
 import 'package:basic_drawer/grid_view.dart';
 import 'package:basic_drawer/mapping_list.dart';
 import 'package:basic_drawer/mediaQuery.dart';
+import 'package:basic_drawer/provider_test.dart';
 import 'package:basic_drawer/tabBar_widget.dart';
 import 'package:basic_drawer/test_stateful.dart';
 import 'package:basic_drawer/textFormField.dart';
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
   var faker = new Faker();
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: MyHomePage(),
     );
@@ -265,6 +266,25 @@ class MyHomePage extends StatelessWidget {
                 ),
                 title: Text(
                   'Cupertino IOS',
+                  style: GoogleFonts.montserrat(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black54),
+                ),
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ProviderPage()));
+              },
+              child: ListTile(
+                leading: const Icon(
+                  Icons.podcasts_rounded,
+                  color: Colors.black54,
+                ),
+                title: Text(
+                  'Provider',
                   style: GoogleFonts.montserrat(
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
